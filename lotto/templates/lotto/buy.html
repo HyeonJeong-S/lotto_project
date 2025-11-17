@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>로또 구매</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding-top: 50px; }
+        input[type="text"] { padding: 5px; width: 200px; margin: 5px; }
+        input[type="submit"] { padding: 10px 20px; margin-top: 10px; background: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        input[type="submit"]:hover { background: #45a049; }
+        .hidden { display: none; }
+    </style>
+    <script>
+        function toggleNumbersInput() {
+            const mode = document.querySelector('input[name="mode"]:checked').value;
+            const numbersInput = document.getElementById('numbers');
+            if (mode === 'auto') {
+                numbersInput.classList.add('hidden');
+                numbersInput.removeAttribute('required');
+            } else {
+                numbersInput.classList.remove('hidden');
+                numbersInput.setAttribute('required', 'required');
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>로또 구매</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="user">사용자 이름:</label><br>
+        <input type="text" name="user" id="user" required><br><br>
+
+        <label>
+            <input type="radio" name="mode" value="auto" checked onclick="toggleNumbersInput()"> 자동
+        </label>
+        <label>
+            <input type="radio" name="mode" value="manual" onclick="toggleNumbersInput()"> 수동
+        </label>
+        <br><br>
+
+        <label for="numbers">수동 번호 (쉼표로 구분):</label><br>
+        <input type="text" name="numbers" id="numbers" placeholder="1, 2, 3, 4, 5, 6" class="hidden"><br>
+
+        <input type="submit" value="구매">
+    </form>
+    <br>
+    <a href="{% url 'index' %}">홈으로</a>
+
+    <script>
+        // 초기 상태 설정
+        toggleNumbersInput();
+    </script>
+</body>
+</html>
+

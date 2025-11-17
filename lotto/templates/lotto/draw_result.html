@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>추첨 결과</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding-top: 50px; }
+        .numbers { font-size: 1.5em; margin: 20px 0; }
+        a { display: inline-block; margin-top: 20px; padding: 10px 20px; background: #4CAF50; color: white; text-decoration: none; border-radius: 5px; }
+        a:hover { background: #45a049; }
+    </style>
+</head>
+<body>
+    <h1>🎉 추첨 완료!</h1>
+    <p>회차: {{ round }}</p>
+    <p class="numbers">당첨 번호: {{ winning_numbers }}</p>
+    <a href="{% url 'draw_numbers' %}">다시 추첨</a>
+    <a href="{% url 'index' %}">홈으로</a>
+</body>
+</html>
+

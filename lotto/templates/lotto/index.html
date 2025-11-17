@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>로또 홈</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 80px;
+            background: #f9f9f9;
+        }
+        h1 {
+            font-size: 2.5em;
+            color: #FF5722;
+        }
+        .button-container {
+            margin-top: 50px;
+        }
+        a.button {
+            display: inline-block;
+            margin: 15px;
+            padding: 20px 40px;
+            font-size: 1.2em;
+            background: #2196F3;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            transition: background 0.3s;
+        }
+        a.button:hover {
+            background: #0b7dda;
+        }
+    </style>
+</head>
+<body>
+    <h1>🎟️ 로또 시스템</h1>
+    <div class="button-container">
+        <a class="button" href="{% url 'buy_lotto' %}">로또 구매</a>
+        <a class="button" href="{% url 'draw_numbers' %}">로또 추첨</a>
+        <a class="button" href="{% url 'check_result_page' %}">당첨 확인</a>
+    </div>
+</body>
+</html>
+

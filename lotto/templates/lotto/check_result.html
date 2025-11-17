@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>당첨 결과</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 60px;
+            background: #f9f9f9;
+        }
+        h1 {
+            font-size: 2.2em;
+            color: #FF5722;
+        }
+        .box {
+            margin: 20px auto;
+            padding: 20px;
+            width: 60%;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0px 0px 8px rgba(0,0,0,0.1);
+        }
+        .numbers {
+            font-size: 1.4em;
+            margin: 10px 0;
+        }
+        .result-item {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+        a.button {
+            display: inline-block;
+            margin: 15px;
+            padding: 15px 30px;
+            font-size: 1.1em;
+            background: #2196F3;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            transition: background 0.3s;
+        }
+        a.button:hover {
+            background: #0b7dda;
+        }
+        .home-btn {
+            background: #4CAF50;
+        }
+        .home-btn:hover {
+            background: #3d8b40;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>📌 {{ round }}회차 당첨 결과</h1>
+
+    <div class="box">
+        <p class="numbers"><strong>당첨 번호:</strong> {{ draw.winning_numbers }}</p>
+    </div>
+
+    <div class="box">
+        <h2>내 로또 결과</h2>
+        
+        {% if results %}
+            {% for r in results %}
+                <p class="result-item">
+                    🎟️ 번호: <strong>{{ r.ticket }}</strong> —  
+                    <span style="color: #FF5722;">{{ r.matched }}개 일치</span>
+                </p>
+            {% endfor %}
+        {% else %}
+            <p>구매한 로또가 없습니다.</p>
+        {% endif %}
+    </div>
+
+    <a class="button" href="{% url 'check_result_page' %}">다시 검색</a>
+    <a class="button home-btn" href="{% url 'index' %}">홈으로</a>
+
+</body>
+</html>
+

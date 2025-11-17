@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>구매 완료</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding-top: 50px; }
+        .ticket { font-size: 1.2em; margin: 10px 0; }
+        a { display: inline-block; margin-top: 20px; padding: 10px 20px; background: #4CAF50; color: white; text-decoration: none; border-radius: 5px; }
+        a:hover { background: #45a049; }
+    </style>
+</head>
+<body>
+    <h1>🎉 구매 완료!</h1>
+    <p>사용자: {{ user }}</p>
+    <p class="ticket">번호: {{ numbers }}</p>
+    <a href="{% url 'buy_lotto' %}">다시 구매</a>
+    <a href="{% url 'index' %}">홈으로</a>
+</body>
+</html>
+

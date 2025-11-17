@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>당첨 확인</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 80px;
+            background: #f9f9f9;
+        }
+        h1 {
+            font-size: 2.2em;
+            color: #FF5722;
+        }
+        input[type="number"] {
+            padding: 10px;
+            width: 200px;
+            margin-top: 20px;
+            font-size: 1.1em;
+        }
+        input[type="submit"], a.button {
+            margin-top: 30px;
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 1.1em;
+            background: #2196F3;
+            color: white;
+            text-decoration: none;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        input[type="submit"]:hover, a.button:hover {
+            background: #0b7dda;
+        }
+        .home-btn {
+            margin-top: 20px;
+            background: #4CAF50;
+        }
+        .home-btn:hover {
+            background: #3d8b40;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🔍 회차별 당첨 확인</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        <input type="number" name="round" min="1" value="1" placeholder="회차 입력" required>
+        <br>
+        <input type="submit" value="조회하기">
+    </form>
+
+    <a class="button home-btn" href="{% url 'index' %}">홈으로</a>
+
+</body>
+</html>
+
